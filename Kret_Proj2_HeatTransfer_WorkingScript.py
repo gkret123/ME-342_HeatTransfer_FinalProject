@@ -13,6 +13,7 @@ All table refereneces are from the course textbook.
 import math
 import numpy as np
 from scipy.optimize import minimize
+import matplotlib.pyplot as plt
 
 # Given Temperatures (K) from problem statement
 T_s = 100 + 273.15 # surface temperature
@@ -488,6 +489,7 @@ def internal_forced_convection_cone(D_base, L_slant, V, fluid_props, N=100):
     dx = H / N # height of each slice
     q_total = 0.0
     A_total = 0.0
+    q_s = [] # create a list to store the heat transfer rates for each slice
     for i in range(N):
         z = (i + 0.5)*dx # mid-point of slice
         D_i = D_base * (1 - z/H) # diameter of the slice
@@ -508,8 +510,16 @@ def internal_forced_convection_cone(D_base, L_slant, V, fluid_props, N=100):
         q_i = h_i * A_i * (T_s - T_inf)
         q_total += q_i
         A_total += A_i
+        q_s.append(q_i)
         #print(f"Slice {i+1}: D_i = {D_i:.4f}, Re_i = {Re_i:.2f}, Nu_i = {Nu_i:.2f}, h_i = {h_i:.2f}, A_i = {A_i:.4f}, q_i = {q_i:.2f} W")
     h_avg = q_total / ((T_s - T_inf) * A_total)
+    #plot q_i vs length
+    plt.plot(np.linspace(0, H, N), q_s)
+    plt.xlabel('Length (m)')
+    plt.ylabel('Heat Transfer Rate (W)')
+    plt.title('Heat Transfer Rate vs Length for Cone')
+    plt.grid()
+    plt.show()
     return h_avg, q_total
 
 #Main execution for CH8 (Forced Internal Convection) analysis
