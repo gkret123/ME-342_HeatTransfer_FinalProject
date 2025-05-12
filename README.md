@@ -26,7 +26,7 @@ All geometries are constrained to:
 
 ---
 
-## 📌 Key Concepts
+## Key Concepts
 
 - Empirical Nusselt number correlations from *Fundamentals of Heat and Mass Transfer* were used to compute heat transfer coefficients.
 - Cone shape required optimization to maximize volume while maintaining a constant surface area.
@@ -36,7 +36,7 @@ All geometries are constrained to:
 
 ---
 
-## 🧪 Methods & Tools
+## Methods & Tools
 
 - **Language:** Python  
 - **Libraries:** `NumPy`, `SciPy`, `math`  
@@ -45,7 +45,7 @@ All geometries are constrained to:
 
 ---
 
-## 📁 File Overview
+## File Overview
 
 - `Kret_Proj2_HeatTransfer_WorkingScript.py`: Complete analysis and comparison script
 - `README.md`: Project summary and documentation (this file)
@@ -53,7 +53,7 @@ All geometries are constrained to:
 
 ---
 
-## 📊 Summary of Results
+## Summary of Results
 
 | Geometry | Free Convection (q) | Forced External Convection (q) | Forced Internal Convection (q) |
 |----------|---------------------|--------------------------------|--------------------------------|
